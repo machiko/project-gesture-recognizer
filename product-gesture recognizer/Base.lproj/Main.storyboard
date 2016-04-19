@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="product_gesture_recognizer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +17,66 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4I7-A1-Aha">
+                                <rect key="frame" x="282" y="264" width="37" height="72"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QUV-9U-IFx">
+                                <rect key="frame" x="239" y="397" width="123" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Tap or Hold"/>
+                                <connections>
+                                    <action selector="addCounter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xB8-6N-1Wn"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oUf-dt-avx">
+                                <rect key="frame" x="50" y="28" width="61" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Reset"/>
+                                <connections>
+                                    <action selector="resetCounter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gzp-U3-oTL"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="oUf-dt-avx" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="0B1-UY-g6B"/>
+                            <constraint firstItem="4I7-A1-Aha" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2TJ-1U-kwy"/>
+                            <constraint firstItem="oUf-dt-avx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="30" id="9MK-PN-qAu"/>
+                            <constraint firstItem="QUV-9U-IFx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ALr-ll-zLq"/>
+                            <constraint firstItem="QUV-9U-IFx" firstAttribute="top" secondItem="4I7-A1-Aha" secondAttribute="bottom" constant="61" id="oVc-8y-WBS"/>
+                            <constraint firstItem="4I7-A1-Aha" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="y8P-gd-sdN"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="uex-EF-wGE" appends="YES" id="Cwi-Ug-lTM"/>
+                            <outletCollection property="gestureRecognizers" destination="hpk-tA-afM" appends="YES" id="Gba-n5-TdU"/>
+                        </connections>
                     </view>
+                    <connections>
+                        <outlet property="counterTxt" destination="4I7-A1-Aha" id="BgA-QD-Snq"/>
+                        <outlet property="resetBtn" destination="oUf-dt-avx" id="zfL-9O-bfF"/>
+                        <outlet property="tapBtn" destination="QUV-9U-IFx" id="mkN-6q-6oq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="uex-EF-wGE">
+                    <connections>
+                        <action selector="tapGesture:" destination="BYZ-38-t0r" id="Iaw-1O-IZm"/>
+                        <outlet property="delegate" destination="QUV-9U-IFx" id="hQM-fs-pk4"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="hpk-tA-afM">
+                    <connections>
+                        <action selector="panGesture:" destination="BYZ-38-t0r" id="or7-IK-IuB"/>
+                        <outlet property="delegate" destination="QUV-9U-IFx" id="JDV-bc-0nw"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="305" y="387"/>
         </scene>
     </scenes>
 </document>
