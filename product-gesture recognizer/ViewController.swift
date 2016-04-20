@@ -20,16 +20,19 @@ class ViewController: UIViewController {
     }
 //    宣告
     @IBOutlet weak var counterTxt: UILabel!
-    
     @IBOutlet weak var tapBtn: UIButton!
-    
     @IBOutlet weak var resetBtn: UIButton!
-    
     
 //    動作
     @IBAction func addCounter(sender: AnyObject) {
         addDigital()
     }
+    
+    @IBAction func panGestureAction(sender: UIPanGestureRecognizer) {
+        addDigital()
+    }
+    
+    
     
     @IBAction func resetCounter(sender: AnyObject) {
         counterTxt.text = String(0)

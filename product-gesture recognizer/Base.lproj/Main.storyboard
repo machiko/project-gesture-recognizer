@@ -30,6 +30,7 @@
                                 <state key="normal" title="Tap or Hold"/>
                                 <connections>
                                     <action selector="addCounter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xB8-6N-1Wn"/>
+                                    <outletCollection property="gestureRecognizers" destination="hpk-tA-afM" appends="YES" id="Trc-Ri-WkN"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oUf-dt-avx">
@@ -51,10 +52,6 @@
                             <constraint firstItem="QUV-9U-IFx" firstAttribute="top" secondItem="4I7-A1-Aha" secondAttribute="bottom" constant="61" id="oVc-8y-WBS"/>
                             <constraint firstItem="4I7-A1-Aha" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="y8P-gd-sdN"/>
                         </constraints>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="uex-EF-wGE" appends="YES" id="Cwi-Ug-lTM"/>
-                            <outletCollection property="gestureRecognizers" destination="hpk-tA-afM" appends="YES" id="Gba-n5-TdU"/>
-                        </connections>
                     </view>
                     <connections>
                         <outlet property="counterTxt" destination="4I7-A1-Aha" id="BgA-QD-Snq"/>
@@ -63,16 +60,10 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="uex-EF-wGE">
-                    <connections>
-                        <action selector="tapGesture:" destination="BYZ-38-t0r" id="Iaw-1O-IZm"/>
-                        <outlet property="delegate" destination="QUV-9U-IFx" id="hQM-fs-pk4"/>
-                    </connections>
-                </tapGestureRecognizer>
                 <panGestureRecognizer minimumNumberOfTouches="1" id="hpk-tA-afM">
                     <connections>
-                        <action selector="panGesture:" destination="BYZ-38-t0r" id="or7-IK-IuB"/>
-                        <outlet property="delegate" destination="QUV-9U-IFx" id="JDV-bc-0nw"/>
+                        <action selector="panGestureAction:" destination="BYZ-38-t0r" id="WaO-TM-QjQ"/>
+                        <outlet property="delegate" destination="QUV-9U-IFx" id="5Cf-8K-2HU"/>
                     </connections>
                 </panGestureRecognizer>
             </objects>
